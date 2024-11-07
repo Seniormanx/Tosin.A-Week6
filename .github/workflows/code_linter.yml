@@ -1,4 +1,4 @@
-name:  Code_linter Bash Scripts
+name: Code_linter Bash Scripts  # Workflow name
 
 on:
   push:
@@ -13,13 +13,19 @@ on:
       - data-v1.0
       - data-v1.1
       - data-v1.2
+
 jobs:
-  shellcheck: 
-    runs-on: macos-latest
+  lint:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Check out code 
-        uses: actions/checkout@v3
-      - name: Run shellcheck
-        uses: ludeeus/action-shellcheck@v3
-        with: 
-          files: "*.sh"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Super Linter
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_BASH: true
+           
