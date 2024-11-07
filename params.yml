@@ -1,0 +1,12 @@
+# Params.yml file 
+# Define the version
+
+version: "1.0"
+
+# Define size as a dictionary with version-size pairs
+size:
+  "1.0": 1000
+  "1.1": 2000
+  "1.2": 3000
+
+...
