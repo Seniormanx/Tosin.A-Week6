@@ -20,6 +20,6 @@ jobs:
       - name: Check out code 
         uses: actions/checkout@v2
       - name: Run shellcheck
-        uses: seniormanx/Tosin.A-Week6/action-shellcheck@v1
+        uses: ludeeus/action-shellcheck@v1
         with: 
           files: "*.sh"
