@@ -1,0 +1,25 @@
+name:  Code_linter Bash Scripts
+
+on:
+  push:
+    branches: 
+      - main
+      - data-v1.0
+      - data-v1.1
+      - data-v1.2
+  pull_request: 
+    branches: 
+      - main
+      - data-v1.0
+      - data-v1.1
+      - data-v1.2
+jobs:
+  shellcheck: 
+    runs-on: macos-latest
+    steps:
+      - name: Check out code 
+        uses: actions/checkout@v2
+      - name: Run shellcheck
+        uses: seniormanx/action-shellcheck@v1
+        with: 
+          files: "*.sh"
